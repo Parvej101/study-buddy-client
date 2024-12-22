@@ -6,10 +6,10 @@ const Navbar = () => {
         <li><NavLink to="/">Assignment</NavLink></li>
         <li><NavLink to="/pending">Pending Assignments</NavLink></li>
         <li><NavLink to="/users">Profile Picture</NavLink></li>
-        {/* <li><NavLink to="/signin">Sign In</NavLink></li> */}
+      
     </>
     return (
-        <div className="navbar bg-base-300">
+        <div className="navbar bg-blue-400 text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
