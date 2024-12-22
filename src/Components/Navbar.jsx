@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+
 const Navbar = () => {
     const links = <>
         <li><NavLink to="/">Assignment</NavLink></li>
         <li><NavLink to="/pending">Pending Assignments</NavLink></li>
         <li><NavLink to="/users">Profile Picture</NavLink></li>
-
     </>
+
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isUserAuthenticated = false;
 
