@@ -7,39 +7,44 @@ import MyAttempted from "./Pages/MyAttempted";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import ErrorPage from "./Pages/ErrorPage";
+import PrivateRoutes from "../PrivateRoutes";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      children: [
-        {
-            path: "/",
-            element: <Home></Home>
-        },
-        {
-            path: "/pending",
-            element:<PendingAssignment></PendingAssignment>
-        },
-        {
-            path: "/create",
-            element: <CreateAssignment></CreateAssignment>
-        },
-        {
-            path: "/myAttempted",
-            element: <MyAttempted></MyAttempted>
-        },
-        {
-          path: "/register",
-          element: <Register></Register>,
-        },
-        {
-          path: "/login",
-          element: <Login></Login>
-        },
-      ],
-      errorElement: <ErrorPage></ErrorPage>,
-    },
-  ]);
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>
+      },
+      {
+        path: "/pending",
+        element: (
+          <PrivateRoutes>
+            <PendingAssignment></PendingAssignment>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/create",
+        element: <CreateAssignment></CreateAssignment>
+      },
+      {
+        path: "/myAttempted",
+        element: <MyAttempted></MyAttempted>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+    ],
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+]);
 
-  export default router;
+export default router;

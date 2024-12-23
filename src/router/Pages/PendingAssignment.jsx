@@ -2,7 +2,7 @@ import React from 'react';
 
 const PendingAssignment = () => {
     return (
-        <div>
+        <div className='font-bold text-red-600'>
             Your pending assignment
         </div>
     );

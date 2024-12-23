@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 import Swal from 'sweetalert2';
 
 const Login = () => {
+    const location = useLocation()
     const {login, googleLogin, user} = useAuth() 
     const navigate = useNavigate()
 
-    const handleLogin = (e) =>{
+    const from = location.state?.from?.pathname || "/";  
+    const handleLogin = async(e) =>{
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
         try {
-            const result = login(email, password); 
+            const result =await login(email, password); 
             if (result) {
               Swal.fire({
                 icon: "success",
@@ -23,8 +25,9 @@ const Login = () => {
               });
       
               setTimeout(() => {
-                navigate("/");
+                navigate(from, { replace: true });
               }, 1500);
+             
             }
           } catch (error) {
             Swal.fire({
@@ -37,6 +40,7 @@ const Login = () => {
     }
 
     // Google login 
+    
     const handleGoogleLogin = async () =>{
         try {
             const user = await googleLogin(); 
@@ -50,7 +54,7 @@ const Login = () => {
               });
         
               setTimeout(() => {
-                navigate("/"); 
+                navigate(from, { replace: true });
               }, 1500);
             }
           } catch (error) {
