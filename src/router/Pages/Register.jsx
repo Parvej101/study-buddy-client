@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
- 
+import React, {  useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
+import Swal from 'sweetalert2';
+
 
 const Register = () => {
+    const {register} = useAuth()
+    const navigate = useNavigate()
+    
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     const [error, setError] = useState("");
 
@@ -21,6 +26,29 @@ const Register = () => {
                 return; 
               }
               console.log("Valid Password. Proceeding with registration...");
+              register(email, password)
+              .then(result =>{
+                console.log("User registered successfully:", result);
+              })
+              try {
+
+                const newUser = register(email, password, name, photoURL );
+                console.log("User registered successfully:", newUser);
+            
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful',
+                    text: `Welcome, ${name}!`,
+                    confirmButtonText: 'OK',
+                  }).then(() => {
+                    // Redirect to home route
+                    navigate('/');
+                  });
+
+              } catch (error) {
+                setError(error.message);
+                console.error("Error during registration:", error);
+              }
         }
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-200 to-blue-500">
