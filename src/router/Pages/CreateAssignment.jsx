@@ -1,3 +1,4 @@
+import { header } from 'framer-motion/client';
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,8 +13,20 @@ const CreateAssignment = () => {
         const thumbnailURL = e.target.thumbnail.value;
         const difficulty = e.target.difficulty.value;
         const dueDate = e.target.dueDate.value;
-        console.log("Assignment Details:", title, description, marks, thumbnailURL, difficulty, dueDate);
+        const newAssignment = {title, description, marks, thumbnailURL, difficulty, dueDate}
 
+        // send data serverside
+        fetch('http://localhost:5000/assignment',{
+            method : "POST",
+            headers: {
+                "content-type" : "application/json"
+            },
+            body:JSON.stringify(newAssignment)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+        })
     }
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-200 flex items-center justify-center">
