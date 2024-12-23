@@ -75,7 +75,7 @@ const Navbar = () => {
                                                 <img
                                                     className='lg:w-20 w-10'
                                                     src={user.photoURL}
-                                                    alt={user.name} />
+                                                    alt={user.displayName} />
                                                 {/* Hover name */}
                                                 <div className="absolute inset-0 flex items-center justify-center bg-opacity-75 text-white text-sm font-semibold rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300">
                                                     {user.displayName}

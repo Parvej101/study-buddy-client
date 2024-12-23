@@ -4,7 +4,7 @@ import { useAuth } from '../../AuthContext';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {login} = useAuth() 
+    const {login, googleLogin, user} = useAuth() 
     const navigate = useNavigate()
 
     const handleLogin = (e) =>{
@@ -12,7 +12,7 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         try {
-            const result = login(email, password); // Your login logic here
+            const result = login(email, password); 
             if (result) {
               Swal.fire({
                 icon: "success",
@@ -22,7 +22,6 @@ const Login = () => {
                 timer: 1500,
               });
       
-              // Navigate to /home after SweetAlert finishes
               setTimeout(() => {
                 navigate("/");
               }, 1500);
@@ -36,12 +35,39 @@ const Login = () => {
           }
 
     }
+
+    // Google login 
+    const handleGoogleLogin = async () =>{
+        try {
+            const user = await googleLogin(); 
+            if (user) {
+              Swal.fire({
+                icon: "success",
+                title: "Login Successful",
+                text: `Welcome back, ${user.displayName || "User"}!`,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+        
+              setTimeout(() => {
+                navigate("/"); 
+              }, 1500);
+            }
+          } catch (error) {
+            Swal.fire({
+              icon: "error",
+              title: "Login Failed",
+              text: error.message || "An error occurred during Google login.",
+            });
+          }
+    }
+
     
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-200 to-blue-500">
             <div className="w-full max-w-lg p-8 space-y-4 bg-white rounded-lg shadow-xl">
                 <h2 className="text-3xl font-semibold text-center text-blue-600">Login</h2>
-                {/* {error && <p className="text-red-500 text-sm text-center">{error}</p>} */}
+
                 <form onSubmit={handleLogin}  className="space-y-6">
                     <div>
                         <input
@@ -68,6 +94,9 @@ const Login = () => {
                         Login
                     </button>
                 </form>
+                <div onClick={handleGoogleLogin} className='justify-center flex btn bg-blue-400'>
+                    <button >Login With GOOGLE</button>
+                </div>
                 <p className="text-center text-sm text-gray-500">
                     Don't have an account?{" "}
                     <Link to="/register" className="text-blue-500 hover:underline">
