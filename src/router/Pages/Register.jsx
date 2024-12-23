@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+ 
 
 const Register = () => {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const [error, setError] = useState("");
+
+        const handleRegister = (e) =>{
+            e.preventDefault()
+            setError("");
+            const name = e.target.name.value;
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+            const photoURL = e.target.photoURL.value;
+            console.log("Form Sign Up", email, password);
+            if (!passwordRegex.test(password)) {
+                setError(
+                  "Password must be at least 8 characters long, contain at least one letter and one number."
+                );
+                return; 
+              }
+              console.log("Valid Password. Proceeding with registration...");
+        }
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-200 to-blue-500">
             <div className="w-full max-w-lg p-8 space-y-4 bg-white rounded-lg shadow-xl">
                 <h2 className="text-3xl font-semibold text-center text-blue-600">Register</h2>
-                {/* {error && <p className="text-red-500 text-sm text-center">{error}</p>} */}
-                <form  className="space-y-6">
+                <form onSubmit={handleRegister}  className="space-y-6">
                     <div>
                         <input
                             type="text"
@@ -30,7 +49,7 @@ const Register = () => {
                         <input
                             type="text"
                             name="photoURL"
-                            placeholder="Photo URL (Optional)"
+                            placeholder="Photo URL"
                             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
@@ -49,6 +68,7 @@ const Register = () => {
                     >
                         Register
                     </button>
+                    {error && <p style={{ color: "red" }}>{error}</p>}
                 </form>
                 <p className="text-center text-sm text-gray-500">
                     Already have an account?{" "}
