@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 
 const Navbar = () => {
+    const { user, logOut } = useAuth()
+    console.log(user
+
+    );
+    //handle logout
+    const handleLogout = () => {
+        logOut()
+    }
+
     const links = <>
         <li><NavLink to="/">Assignment</NavLink></li>
         <li><NavLink to="/pending">Pending Assignments</NavLink></li>
@@ -11,7 +21,6 @@ const Navbar = () => {
 
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const isUserAuthenticated = false;
 
     return (
         <div className="navbar bg-blue-400 text-white">
@@ -50,7 +59,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex  lg:flex-row">
 
-                {!isUserAuthenticated ? (
+                {!user ? (
                     <div>
                         <Link className="btn px-3 py-1 mr-2" to="/login">Login</Link>
 
@@ -63,7 +72,17 @@ const Navbar = () => {
 
                                 <li>
                                     <details>
-                                        <summary className='rounded-full'><img className='lg:w-20 w-10' src="https://i.ibb.co.com/wCQTwZw/logo-3.png" alt="" /></summary>
+                                        <summary >
+                                            <div className='rounded-full relative inline-block'>
+                                                <img
+                                                    className='lg:w-20 w-10'
+                                                    src={user.photoURL}
+                                                    alt={user.name} />
+                                                {/* Hover name */}
+                                                <div className="absolute inset-0 flex items-center justify-center bg-opacity-75 text-white text-sm font-semibold rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                                    {user.displayName}
+                                                </div>
+                                            </div></summary>
                                         <ul className="p-2 w-48 text-black bg-blue-300">
                                             <li><Link to="/create">Create Assignment</Link></li>
                                             <li> <Link to="/myAttempted">My Attempted</Link></li>
@@ -75,7 +94,7 @@ const Navbar = () => {
                             </ul>
                         </div>
 
-                        <div> <Link className="btn px-3 py-1" to="/login">Logout</Link></div>
+                        <div> <Link className="btn px-3 py-1" onClick={handleLogout} to="/login">Logout</Link></div>
                     </div>
                 )}
             </div>
