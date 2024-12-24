@@ -8,6 +8,7 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import ErrorPage from "./Pages/ErrorPage";
 import PrivateRoutes from "../PrivateRoutes";
+import AllAssignment from "./Pages/AllAssignment";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: "/myAttempted",
         element: <MyAttempted></MyAttempted>
+      },
+      {
+        path: "/allAssignment",
+        element: <AllAssignment></AllAssignment>,
+        loader : () => fetch('http://localhost:5000/assignment')
       },
       {
         path: "/register",

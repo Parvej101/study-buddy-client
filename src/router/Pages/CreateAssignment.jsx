@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
+import { useAuth } from '../../AuthContext';
 
 const CreateAssignment = () => {
+    const {user} = useAuth()
     const [dueDate, setDueDate] = useState(null)
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,7 +16,9 @@ const CreateAssignment = () => {
         const thumbnailURL = e.target.thumbnail.value;
         const difficulty = e.target.difficulty.value;
         const dueDate = e.target.dueDate.value;
-        const newAssignment = { title, description, marks, thumbnailURL, difficulty, dueDate }
+        const userName = user?.displayName;
+        const userEmail = user?.email;
+        const newAssignment = { title, description, marks, thumbnailURL, difficulty, dueDate, userEmail, userName }
 
          // Using axios
         try {
