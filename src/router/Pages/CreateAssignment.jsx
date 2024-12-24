@@ -1,11 +1,12 @@
-import { header } from 'framer-motion/client';
+import axios from 'axios';
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from 'sweetalert2';
 
 const CreateAssignment = () => {
-    const [dueDate, setDueDate] =useState(null)
-    const handleSubmit = (e) => {
+    const [dueDate, setDueDate] = useState(null)
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const title = e.target.title.value;
         const description = e.target.description.value;
@@ -13,21 +14,36 @@ const CreateAssignment = () => {
         const thumbnailURL = e.target.thumbnail.value;
         const difficulty = e.target.difficulty.value;
         const dueDate = e.target.dueDate.value;
-        const newAssignment = {title, description, marks, thumbnailURL, difficulty, dueDate}
+        const newAssignment = { title, description, marks, thumbnailURL, difficulty, dueDate }
 
-        // send data serverside
-        fetch('http://localhost:5000/assignment',{
-            method : "POST",
-            headers: {
-                "content-type" : "application/json"
-            },
-            body:JSON.stringify(newAssignment)
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data);
-        })
-    }
+         // Using axios
+        try {
+            const response = await axios.post('http://localhost:5000/assignment', newAssignment);
+            if (response.data.insertedId) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Assignment Created!",
+                    text: "Your assignment has been added successfully.",
+                    timer: 2000,
+                    showConfirmButton: false,
+                    background: "#f0f9ff",
+                    color: "#0c4a6e",
+                });
+            }
+        } catch (error) {
+            console.error('Error creating assignment:', error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong while creating the assignment.",
+                footer: `<a href="https://support.example.com">Need help?</a>`,
+                confirmButtonColor: "#d33",
+            });
+        }
+    };
+   
+
+
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-200 flex items-center justify-center">
             <div className="max-w-2xl w-full p-6 bg-white rounded-lg shadow-lg">
@@ -45,7 +61,7 @@ const CreateAssignment = () => {
                             name="title"
                             id="title"
                             placeholder="Enter assignment title"
-                        
+
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
@@ -53,14 +69,14 @@ const CreateAssignment = () => {
 
                     {/* Description */}
                     <div>
-                        <label  className="block font-medium">
+                        <label className="block font-medium">
                             Description
                         </label>
                         <textarea
                             name="description"
                             id="description"
                             placeholder="Enter assignment description"
-                    
+
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
@@ -68,7 +84,7 @@ const CreateAssignment = () => {
 
                     {/* Marks */}
                     <div>
-                        <label  className="block font-medium">
+                        <label className="block font-medium">
                             Marks
                         </label>
                         <input
@@ -84,7 +100,7 @@ const CreateAssignment = () => {
 
                     {/* Thumbnail */}
                     <div>
-                        <label  className="block font-medium">
+                        <label className="block font-medium">
                             Thumbnail Image URL
                         </label>
                         <input
@@ -92,7 +108,7 @@ const CreateAssignment = () => {
                             name="thumbnail"
                             id="thumbnail"
                             placeholder="Enter thumbnail image URL"
-        
+
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
@@ -100,7 +116,7 @@ const CreateAssignment = () => {
 
                     {/* Difficulty Level */}
                     <div>
-                        <label  className="block font-medium">
+                        <label className="block font-medium">
                             Difficulty Level
                         </label>
                         <select
@@ -117,7 +133,7 @@ const CreateAssignment = () => {
 
                     {/* Due Date */}
                     <div>
-                        <label  className="block font-medium">
+                        <label className="block font-medium">
                             Due Date
                         </label>
                         <DatePicker

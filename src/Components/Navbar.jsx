@@ -75,7 +75,7 @@ const Navbar = () => {
                           src={user.photoURL}
                           alt={user.displayName}
                         />
-                        <span className="ml-2">{user.displayName}</span>
+                        <span className="ml-2 ">{user.displayName}</span>
                       </button>
                       {isMenuOpen && (
                         <ul className="absolute z-50 right-0 mt-2 w-48 bg-blue-300 text-black shadow-lg rounded-md">
