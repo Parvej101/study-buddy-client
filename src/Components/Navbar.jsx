@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import Spinner from './Spinner';
 
 
 const Navbar = () => {
-    const { user, logOut } = useAuth()
-    console.log(user);
+    const { user, logOut, loading } = useAuth()
+    
     //handle logout
     const handleLogout = () => {
         logOut()
@@ -19,6 +20,10 @@ const Navbar = () => {
 
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    if (loading) {
+        return <Spinner></Spinner>
+      }
+      console.log(user);
 
     return (
         <div className="navbar bg-blue-400 text-white">
