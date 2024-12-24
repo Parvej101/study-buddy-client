@@ -23,6 +23,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-blue-400 text-white">
             <div className="navbar-start">
+                {/* Small device dropdown */}
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -55,6 +56,7 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
+            {/* User photo click */}
             <div className="navbar-end flex  lg:flex-row">
 
                 {!user ? (
@@ -62,39 +64,34 @@ const Navbar = () => {
                         <Link className="btn px-3 py-1 mr-2" to="/login">Login</Link>
 
                     </div>
-                ) : (
-                    <div className='flex items-center'>
-
-                        <div>
-                            <ul className="menu menu-horizontal px-1 bg-">
-
-                                <li>
-                                    <details>
-                                        <summary >
-                                            <div className='rounded-full relative inline-block'>
-                                                <img
-                                                    className='lg:w-20 w-10'
-                                                    src={user.photoURL}
-                                                    alt={user.displayName} />
-                                                {/* Hover name */}
-                                                <div className="absolute inset-0 flex items-center justify-center bg-opacity-75 text-white text-sm font-semibold rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                                    {user.displayName}
-                                                </div>
-                                            </div></summary>
-                                        <ul className="p-2 w-48 text-black bg-blue-300">
-                                            <li><Link to="/create">Create Assignment</Link></li>
-                                            <li> <Link to="/myAttempted">My Attempted</Link></li>
-
-                                        </ul>
-                                    </details>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                        <div> <Link className="btn px-3 py-1" onClick={handleLogout} to="/login">Logout</Link></div>
+                ) :(
+                    <div className="relative">
+                      <button
+                        className="flex items-center focus:outline-none"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                      >
+                        <img
+                          className="lg:w-10 w-8 rounded-full"
+                          src={user.photoURL}
+                          alt={user.displayName}
+                        />
+                        <span className="ml-2">{user.displayName}</span>
+                      </button>
+                      {isMenuOpen && (
+                        <ul className="absolute z-50 right-0 mt-2 w-48 bg-blue-300 text-black shadow-lg rounded-md">
+                          <li className="px-4 py-2 hover:bg-blue-400">
+                            <Link to="/create">Create Assignment</Link>
+                          </li>
+                          <li className="px-4 py-2 hover:bg-blue-400">
+                            <Link to="/myAttempted">My Attempted</Link>
+                          </li>
+                          <li className="px-4 py-2 hover:bg-blue-400">
+                            <button onClick={handleLogout}>Logout</button>
+                          </li>
+                        </ul>
+                      )}
                     </div>
-                )}
+                  )}
             </div>
         </div>
 
