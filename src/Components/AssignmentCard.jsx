@@ -2,10 +2,13 @@ import axios from 'axios';
 import React from 'react';
 import Swal from 'sweetalert2';
 import { useAuth } from '../AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { nav } from 'framer-motion/client';
 
 const AssignmentCard = ({ assignment }) => {
-    const { _id, thumbnailURL, title, marks, difficulty ,createdBy} = assignment;
-const {user} = useAuth();
+    const { _id, thumbnailURL, title, marks, difficulty, createdBy } = assignment;
+    const { user } = useAuth();
+    const navigate = useNavigate();
 
     const handleDelete = async (id) => {
         if (user.email !== createdBy) {
@@ -36,6 +39,7 @@ const {user} = useAuth();
                 const data = await response.json();
                 if (data.deletedCount > 0) {
                     Swal.fire('Deleted!', 'Your assignment has been deleted.', 'success');
+                    navigate('/allAssignment');
                 } else {
                     Swal.fire('Error', 'Failed to delete the assignment.', 'error');
                 }

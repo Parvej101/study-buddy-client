@@ -4,8 +4,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
 import { useAuth } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const CreateAssignment = () => {
+    const navigate = useNavigate();
     const {user} = useAuth()
     const [dueDate, setDueDate] = useState(null)
     const handleSubmit = async (e) => {
@@ -33,6 +35,7 @@ const CreateAssignment = () => {
                     background: "#f0f9ff",
                     color: "#0c4a6e",
                 });
+                navigate('/allAssignment');
             }
         } catch (error) {
             console.error('Error creating assignment:', error);
