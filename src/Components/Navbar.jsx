@@ -23,7 +23,7 @@ const Navbar = () => {
     if (loading) {
         return <Spinner></Spinner>
       }
-      console.log(user);
+   
 
     return (
         <div className="navbar bg-blue-400 text-white">
@@ -52,9 +52,11 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className='hidden lg:flex'>
+               <Link to="/">
+               <div className='hidden lg:flex'>
                     <img className='w-20' src="https://i.ibb.co.com/wCQTwZw/logo-3.png" alt="" />
                 </div>
+               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

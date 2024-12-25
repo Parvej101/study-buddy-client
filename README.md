@@ -1,8 +1,23 @@
-# React + Vite
+Study Buddy Client Side
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the client-side repository for the "Study Buddy" project, a web application that allows users to engage in online group study with friends. Users can create, complete, and grade assignments while interacting with their friends.
 
-Currently, two official plugins are available:
+Features :
+   1. User Authentication: Google-based login system.
+   2. Assignments Management: Create, view, update, delete, and attempt           assignments.
+   3. Responsive Design: Fully responsive UI built with Tailwind CSS and DaisyUI.
+   4. Dynamic Content: Displays user-specific data using Firebase Authentication and React Context.
+   5. Loading States: Interactive and visually appealing loading spinners.
+    Animations: Smooth transitions and effects using react-awesome-reveal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Tech Stack:
+    React: Frontend framework.
+    Firebase: Authentication and backend integration.
+    React Router DOM: For seamless routing and navigation.
+    Tailwind CSS: Utility-first CSS framework for styling.
+    Daisy UI: Tailwind CSS component library.
+    Axios: HTTP client for API requests.
+    React DatePicker: User-friendly date selection for assignment deadlines.
+    SweetAlert2: Interactive alerts for feedback.
+    React Awesome Reveal: Easy-to-use animations.

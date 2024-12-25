@@ -17,8 +17,8 @@ const CreateAssignment = () => {
         const difficulty = e.target.difficulty.value;
         const dueDate = e.target.dueDate.value;
         const userName = user?.displayName;
-        const userEmail = user?.email;
-        const newAssignment = { title, description, marks, thumbnailURL, difficulty, dueDate, userEmail, userName }
+        const createdBy = user?.email;
+        const newAssignment = { title, description, marks, thumbnailURL, difficulty, dueDate, userName, createdBy }
 
          // Using axios
         try {

@@ -1,7 +1,50 @@
+import axios from 'axios';
 import React from 'react';
+import Swal from 'sweetalert2';
+import { useAuth } from '../AuthContext';
 
-const AssignmentCard = ({assignment}) => {
-    const { _id, thumbnailURL, title, marks, difficulty } = assignment;
+const AssignmentCard = ({ assignment }) => {
+    const { _id, thumbnailURL, title, marks, difficulty ,createdBy} = assignment;
+const {user} = useAuth();
+
+    const handleDelete = async (id) => {
+        if (user.email !== createdBy) {
+            Swal.fire('Error', 'You are not authorized to delete this assignment.', 'error');
+            return;
+        }
+
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+        });
+
+        if (result.isConfirmed) {
+            try {
+                const response = await fetch(`http://localhost:5000/assignment/${id}`, {
+                    method: 'DELETE',
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                if (data.deletedCount > 0) {
+                    Swal.fire('Deleted!', 'Your assignment has been deleted.', 'success');
+                } else {
+                    Swal.fire('Error', 'Failed to delete the assignment.', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                Swal.fire('Error', 'Failed to delete the assignment.', 'error');
+            }
+        }
+    };
     return (
         <div
             className="group bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition duration-300"
@@ -29,7 +72,9 @@ const AssignmentCard = ({assignment}) => {
                         Update
                     </button>
                     <button
-                        // onClick={handleDelete}
+                        onClick={() => {
+                            handleDelete(_id)
+                        }}
                         className="px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none"
                     >
                         Delete
