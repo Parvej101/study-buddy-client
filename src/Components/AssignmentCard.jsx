@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import Swal from 'sweetalert2';
 import { useAuth } from '../AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { nav } from 'framer-motion/client';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const AssignmentCard = ({ assignment }) => {
     const { _id, thumbnailURL, title, marks, difficulty, createdBy } = assignment;
@@ -69,12 +69,13 @@ const AssignmentCard = ({ assignment }) => {
                     >
                         View
                     </button>
-                    <button
-                        // onClick={handleUpdate}
+                   <Link to={`/updateAssignment/${_id}`}>
+                   <button  
                         className="px-4 py-2 text-white bg-yellow-600 rounded-md hover:bg-yellow-700 focus:outline-none"
-                    >
-                        Update
+                    >Update
                     </button>
+                   </Link>
+
                     <button
                         onClick={() => {
                             handleDelete(_id)

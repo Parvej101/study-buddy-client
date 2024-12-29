@@ -9,6 +9,7 @@ import Login from "./Pages/Login";
 import ErrorPage from "./Pages/ErrorPage";
 import PrivateRoutes from "../PrivateRoutes";
 import AllAssignment from "./Pages/AllAssignment";
+import UpdateAssignment from "../Components/UpdateAssignment";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>
+      },
+      {
+        path: "/updateAssignment/:id",
+        element: <UpdateAssignment></UpdateAssignment>,
+        loader : ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
       },
     ],
     errorElement: <ErrorPage></ErrorPage>,
