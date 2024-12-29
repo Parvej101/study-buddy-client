@@ -63,12 +63,13 @@ const AssignmentCard = ({ assignment }) => {
                 <p className="text-gray-500 mt-2">Marks: {marks}</p>
                 <p className="text-gray-500 mt-2">Difficulty: {difficulty}</p>
                 <div className="flex justify-between items-center mt-4">
-                    <button
-                        // onClick={handleView}
+                   <Link to={`/assignmentDetails/${_id}`}>
+                   <button
                         className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none"
                     >
                         View
                     </button>
+                   </Link>
                    <Link to={`/updateAssignment/${_id}`}>
                    <button  
                         className="px-4 py-2 text-white bg-yellow-600 rounded-md hover:bg-yellow-700 focus:outline-none"
