@@ -6,7 +6,7 @@ const FeaturesSection = () => {
     useEffect(() => {
         AOS.init({
             duration: 100,
-            easing: 'ease-out',
+            easing: 'ease-out-out',
         });
     }, []);
     return (

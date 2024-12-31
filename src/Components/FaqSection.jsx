@@ -5,7 +5,7 @@ const FaqSection = () => {
     useEffect(() => {
         AOS.init({
             duration: 100,
-            easing: 'ease-in',
+            easing: 'ease-in-out',
         });
     }, []);
     return (
