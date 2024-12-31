@@ -1,8 +1,13 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const PendingAssignment = () => {
     const pendingAssignment = useLoaderData()
+    const navigate = useNavigate();
+
+    const handleGiveMark = (assignmentId) => {
+        navigate(`/markAssignment/${assignmentId}`);
+    };
 
     // console.log(pendingAssignment);
     return (
@@ -21,12 +26,12 @@ const PendingAssignment = () => {
 
                         {/* Display Examinee Name */}
                         <p className="text-sm text-gray-600 mb-2">
-                            Submitted by: {assignment.userName}
+                            Submitted by: {assignment.user}
                         </p>
 
                         {/* "Give Mark" Button */}
                         <button
-                            // onClick={() => handleGiveMark(assignment._id)}
+                            onClick={() => handleGiveMark(assignment._id)}
                             className="mt-3 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                         >
                             Give Mark

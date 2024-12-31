@@ -12,6 +12,7 @@ import AllAssignment from "./Pages/AllAssignment";
 import UpdateAssignment from "../Components/UpdateAssignment";
 import AssignmentDetails from "../Components/AssignmentDetails";
 import TakeAssignment from "./Pages/TakeAssignment";
+import MarkAssignment from "./Pages/MarkAssignment";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
             <PendingAssignment></PendingAssignment>
           </PrivateRoutes>
         ),
-        loader : () => fetch('http://localhost:5000/assignment/pending'),
+        loader : () => fetch('http://localhost:5000/submitAssignment'),
       },
       {
         path: "/create",
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
         path : "/takeAssignment",
         element:<TakeAssignment></TakeAssignment>,
         
+      },
+      {
+        path : "/markAssignment/:id",
+        element:<PrivateRoutes><MarkAssignment></MarkAssignment></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/submitAssignment/${params.id}`)
       },
     ],
     errorElement: <ErrorPage></ErrorPage>,
