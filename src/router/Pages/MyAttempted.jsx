@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 const MyAttempted = () => {
     const { user } = useAuth();
     const submitAssignment = useLoaderData();
-    console.log(submitAssignment);
+
 
     // Filter assignments for the logged-in user
     const filteredAssignments = submitAssignment.filter(
