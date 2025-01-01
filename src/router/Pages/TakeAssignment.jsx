@@ -41,7 +41,7 @@ const TakeAssignment = () => {
                             background: "#f0f9ff",
                             color: "#0c4a6e",
                         });
-                        navigate('/allAssignment');
+                        navigate('/pending');
                     }
                 } catch (error) {
                     console.error('Error creating assignment:', error);

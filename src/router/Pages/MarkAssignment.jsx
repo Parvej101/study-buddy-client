@@ -1,37 +1,71 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { useAuth } from '../../AuthContext';
 
 const MarkAssignment = () => {
-    const { id } = useParams()
     const submitData = useLoaderData()
-    const [marks, setMarks] = useState('');
-    const [feedback, setFeedback] = useState('');
-    console.log(submitData);
-
+    const navigate = useNavigate();
+    const { user } = useAuth();
+    const maxMarks = parseInt(submitData?.marks); // Convert string to integer
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const marks = e.target.marks.value;
+        const marks = parseInt(e.target.marks.value);
         const feedback = e.target.feedback.value;
         const status = "completed";
-        const value = { marks, feedback , status };
-
-        fetch(`http://localhost:5000/submitAssignment/${submitData._id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(value)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                alert('Marks Submitted Successfully');
-            })
-            .catch(err => {
-                console.error(err);
+        const value = { marks, feedback, status };
+        
+        // Mark validation user cannot given marks greater than assignment total marks
+        if (marks > maxMarks) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Marks',
+                text: `Marks cannot exceed the maximum allowed: ${maxMarks}`,
+                confirmButtonText: 'OK'
             });
-       
+            return;
+        }
+
+        // user validation mark for his own assignment
+        if (user.email !== submitData.createdBy) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Action Denied',
+                text: 'You cannot mark your own assignment.',
+                confirmButtonText: 'OK'
+            });
+        } else {
+            axios.put(`http://localhost:5000/submitAssignment/${submitData._id}`, value, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    console.log(response.data);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Marks Submitted Successfully!',
+                        text: 'The assignment has been marked and updated.',
+                        confirmButtonText: 'OK',
+                        timer: 3000
+                    });
+                    navigate('/pending');
+                })
+                .catch(error => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Failed to Submit Marks',
+                        text: 'There was an error updating the assignment.',
+                        confirmButtonText: 'Try Again'
+                    });
+                });
+
+
+        }
+
+
+
     };
     return (
         <div className="p-5">
