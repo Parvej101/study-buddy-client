@@ -29,7 +29,7 @@ const TakeAssignment = () => {
       // console.log("sumbission", submission);
   
       try {
-        const response = await axios.post("http://localhost:5000/submitAssignment", submission);
+        const response = await axios.post("https://study-buddy-server-omega.vercel.app/submitAssignment", submission);
 
             if (response.data.insertedId) {
                         Swal.fire({

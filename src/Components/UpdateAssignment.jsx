@@ -24,7 +24,7 @@ const UpdateAssignment = () => {
         const updateAssignment = { title, description, marks, thumbnailURL, difficulty, dueDate, userName, createdBy }
 
         try {
-            const response = await axios.put(`http://localhost:5000/assignment/${assignment._id}`, updateAssignment);
+            const response = await axios.put(`https://study-buddy-server-omega.vercel.app/assignment/${assignment._id}`, updateAssignment);
       
             if (response.status === 200) {
               Swal.fire("Success", "Assignment updated successfully!", "success");

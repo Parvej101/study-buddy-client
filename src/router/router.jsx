@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             <PendingAssignment></PendingAssignment>
           </PrivateRoutes>
         ),
-        loader : () => fetch('http://localhost:5000/submitAssignment'),
+        loader : () => fetch('https://study-buddy-server-omega.vercel.app/submitAssignment'),
       },
       {
         path: "/create",
@@ -39,12 +39,12 @@ const router = createBrowserRouter([
       {
         path: "/myAttempted",
         element: <PrivateRoutes><MyAttempted></MyAttempted></PrivateRoutes>,
-        loader : () => fetch('http://localhost:5000/myAttempts')
+        loader : () => fetch('https://study-buddy-server-omega.vercel.app/myAttempts')
       },
       {
         path: "/allAssignment",
         element: <AllAssignment></AllAssignment>,
-        loader : () => fetch('http://localhost:5000/assignment')
+        loader : () => fetch('https://study-buddy-server-omega.vercel.app/assignment')
       },
       {
         path: "/register",
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
       {
         path: "/updateAssignment/:id",
         element: <PrivateRoutes><UpdateAssignment></UpdateAssignment></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader : ({params}) => fetch(`https://study-buddy-server-omega.vercel.app/assignment/${params.id}`)
       },
       {
         path: "/assignmentDetails/:id",
         element:<PrivateRoutes><AssignmentDetails></AssignmentDetails></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader : ({params}) => fetch(`https://study-buddy-server-omega.vercel.app/assignment/${params.id}`)
       },
       {
         path : "/takeAssignment",
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
       {
         path : "/markAssignment/:id",
         element:<PrivateRoutes><MarkAssignment></MarkAssignment></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/submitAssignment/${params.id}`)
+        loader : ({params}) => fetch(`https://study-buddy-server-omega.vercel.app/submitAssignment/${params.id}`)
       },
     ],
     errorElement: <ErrorPage></ErrorPage>,

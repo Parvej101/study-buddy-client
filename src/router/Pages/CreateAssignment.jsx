@@ -25,7 +25,7 @@ const CreateAssignment = () => {
 
          // Using axios
         try {
-            const response = await axios.post('http://localhost:5000/assignment', newAssignment);
+            const response = await axios.post('https://study-buddy-server-omega.vercel.app/assignment', newAssignment);
             if (response.data.insertedId) {
                 Swal.fire({
                     icon: "success",

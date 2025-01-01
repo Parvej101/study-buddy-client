@@ -37,7 +37,7 @@ const MarkAssignment = () => {
                 confirmButtonText: 'OK'
             });
         } else {
-            axios.put(`http://localhost:5000/submitAssignment/${submitData._id}`, value, {
+            axios.put(`https://study-buddy-server-omega.vercel.app/submitAssignment/${submitData._id}`, value, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
