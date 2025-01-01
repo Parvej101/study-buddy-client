@@ -11,13 +11,14 @@ const MarkAssignment = () => {
     const maxMarks = parseInt(submitData?.marks); // Convert string to integer
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const marks = parseInt(e.target.marks.value);
+        const obtainedMarks = parseInt(e.target.marks.value);
         const feedback = e.target.feedback.value;
         const status = "completed";
-        const value = { marks, feedback, status };
-        
+        const value = { obtainedMarks, feedback, status };
+      
+
         // Mark validation user cannot given marks greater than assignment total marks
-        if (marks > maxMarks) {
+        if (obtainedMarks > maxMarks) {
             Swal.fire({
                 icon: 'error',
                 title: 'Invalid Marks',
@@ -28,7 +29,7 @@ const MarkAssignment = () => {
         }
 
         // user validation mark for his own assignment
-        if (user.email !== submitData.createdBy) {
+        if (user.email == submitData.submittedBy) {
             Swal.fire({
                 icon: 'warning',
                 title: 'Action Denied',
