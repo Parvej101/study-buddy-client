@@ -1,4 +1,4 @@
-Study Buddy Client Side
+Study Buddy  : https://study-buddy-1d441.web.app/
 
 This is the client-side repository for the "Study Buddy" project, a web application that allows users to engage in online group study with friends. Users can create, complete, and grade assignments while interacting with their friends.
 

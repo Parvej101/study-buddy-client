@@ -34,7 +34,7 @@ const TakeAssignment = () => {
             if (response.data.insertedId) {
                         Swal.fire({
                             icon: "success",
-                            title: "Assignment Created!",
+                            title: "Take Assignment Succesfully!",
                             text: "Your assignment has been added successfully.",
                             timer: 2000,
                             showConfirmButton: false,
