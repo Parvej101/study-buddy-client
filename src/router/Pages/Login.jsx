@@ -93,12 +93,12 @@ const Login = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full p-3 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none"
+                        className="w-full p-3 font-semibold text-black  btn btn-outline  hover:bg-blue-600 focus:outline-none"
                     >
                         Login
                     </button>
                 </form>
-                <div onClick={handleGoogleLogin} className='justify-center flex btn bg-blue-400'>
+                <div onClick={handleGoogleLogin} className='justify-center flex  btn btn-outline hover:bg-blue-600'>
                     <button >Login With GOOGLE</button>
                 </div>
                 <p className="text-center text-sm text-gray-500">
