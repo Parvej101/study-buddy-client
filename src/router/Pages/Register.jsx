@@ -60,7 +60,7 @@ const Register = () => {
                             type="text"
                             name="name"
                             placeholder="Full Name"
-                            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
                     </div>
@@ -69,7 +69,7 @@ const Register = () => {
                             type="email"
                             name="email"
                             placeholder="Email Address"
-                            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
                     </div>
@@ -78,7 +78,7 @@ const Register = () => {
                             type="text"
                             name="photoURL"
                             placeholder="Photo URL"
-                            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
                     <div>
@@ -86,13 +86,13 @@ const Register = () => {
                             type="password"
                             name="password"
                             placeholder="Password"
-                            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full p-3 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none"
+                        className="w-full p-3 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none"
                     >
                         Register
                     </button>

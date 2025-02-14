@@ -70,7 +70,7 @@ const CreateAssignment = () => {
                             id="title"
                             placeholder="Enter assignment title"
 
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
                     </div>
@@ -85,7 +85,7 @@ const CreateAssignment = () => {
                             id="description"
                             placeholder="Enter assignment description"
 
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
                     </div>
@@ -101,7 +101,7 @@ const CreateAssignment = () => {
                             id="marks"
                             placeholder="Enter total marks"
 
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
                     </div>
@@ -117,7 +117,7 @@ const CreateAssignment = () => {
                             id="thumbnail"
                             placeholder="Enter thumbnail image URL"
 
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             required
                         />
                     </div>
@@ -131,7 +131,7 @@ const CreateAssignment = () => {
                             name="difficulty"
                             id="difficulty"
 
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         >
                             <option value="easy">Easy</option>
                             <option value="medium">Medium</option>
@@ -149,14 +149,14 @@ const CreateAssignment = () => {
                             name='dueDate'
                             onChange={(date) => setDueDate(date)}
                             dateFormat="yyyy-MM-dd"
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
 
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="w-full py-2  btn btn-outline text-black hover:bg-blue-600 rounded-md  focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full py-2  btn btn-outline text-black hover:bg-blue-600 rounded-lg  focus:outline-none focus:ring-2 focus:ring-blue-400"
                     >
                         Create Assignment
                     </button>

@@ -53,7 +53,7 @@ const UpdateAssignment = () => {
                         id="title"
                         defaultValue={assignment?.title || ""}
                         placeholder="Enter assignment title"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required
                     />
                 </div>
@@ -66,7 +66,7 @@ const UpdateAssignment = () => {
                         id="description"
                         defaultValue={assignment?.description || ""}
                         placeholder="Enter assignment description"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required
                     />
                 </div>
@@ -80,7 +80,7 @@ const UpdateAssignment = () => {
                         id="marks"
                         defaultValue={assignment?.marks || ""}
                         placeholder="Enter total marks"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required
                     />
                 </div>
@@ -94,7 +94,7 @@ const UpdateAssignment = () => {
                         id="thumbnail"
                         defaultValue={assignment?.thumbnailURL || ""}
                         placeholder="Enter thumbnail image URL"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required
                     />
                 </div>
@@ -106,7 +106,7 @@ const UpdateAssignment = () => {
                         name="difficulty"
                         id="difficulty"
                         defaultValue={assignment?.difficulty || "easy"}
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     >
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
@@ -122,14 +122,14 @@ const UpdateAssignment = () => {
                         name="dueDate"
                         onChange={(date) => setDueDate(date)}
                         dateFormat="yyyy-MM-dd"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
                 </div>
     
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="w-full py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="w-full py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 >
                     Update Assignment
                 </button>

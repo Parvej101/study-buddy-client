@@ -73,7 +73,7 @@ const TakeAssignment = () => {
                 name="googleDocsLink"
                 id="googleDocsLink"
                 placeholder="Enter Google Docs link"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
@@ -84,14 +84,14 @@ const TakeAssignment = () => {
                 name="quickNote"
                 id="quickNote"
                 placeholder="Add a quick note"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               Submit Assignment
             </button>

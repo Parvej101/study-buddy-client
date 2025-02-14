@@ -27,7 +27,7 @@ const ErrorPage = () => {
                 >
                     <Link
                         to="/"
-                        className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none"
+                        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none"
                     >
                         Go Back Home
                     </Link>
