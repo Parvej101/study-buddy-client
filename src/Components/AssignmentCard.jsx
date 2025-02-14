@@ -65,14 +65,14 @@ const AssignmentCard = ({ assignment }) => {
                 <div className="flex justify-between items-center mt-4">
                    <Link to={`/assignmentDetails/${_id}`}>
                    <button
-                        className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none"
+                        className="px-5 py-2 text-black btn btn-outline rounded-md hover:bg-blue-500 focus:outline-none"
                     >
                         View
                     </button>
                    </Link>
                    <Link to={`/updateAssignment/${_id}`}>
                    <button  
-                        className="px-4 py-2 text-white bg-yellow-600 rounded-md hover:bg-yellow-700 focus:outline-none"
+                        className="px-4 py-2 text-black  btn btn-outline rounded-md hover:bg-yellow-500 focus:outline-none"
                     >Update
                     </button>
                    </Link>
@@ -81,7 +81,7 @@ const AssignmentCard = ({ assignment }) => {
                         onClick={() => {
                             handleDelete(_id)
                         }}
-                        className="px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none"
+                        className="px-4 py-2 text-black  btn btn-outline rounded-md hover:bg-red-500 focus:outline-none"
                     >
                         Delete
                     </button>
