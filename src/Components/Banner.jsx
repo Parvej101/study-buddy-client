@@ -62,7 +62,7 @@ const Banner = () => {
                     transition={{ duration: 1, delay: 1 }}
                 >
                     <Link to="/allAssignment">
-                    <button className="px-6 py-3 bg-yellow-400 text-blue-800 font-semibold text-lg rounded-lg shadow-lg hover:bg-yellow-500 focus:outline-none">
+                    <button className="px-6 py-3 btn btn-outline text-white font-semibold text-lg rounded-lg shadow-lg hover:bg-yellow-500 focus:outline-none">
                         Get Started
                     </button>
                     </Link>
