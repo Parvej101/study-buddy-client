@@ -9,7 +9,7 @@ const FaqSection = () => {
         });
     }, []);
     return (
-        <div className="container py-16 px-4">
+        <div className="container mx-auto py-16 px-4">
             <h2 className="text-3xl font-semibold text-center text-blue-600 mb-8">Frequently Asked Questions</h2>
 
             <div className="space-y-6">

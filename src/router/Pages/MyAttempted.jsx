@@ -13,7 +13,7 @@ const MyAttempted = () => {
     );
 
     return (
-        <div className="overflow-x-auto p-4">
+        <div className="overflow-x-auto lg:px-32 pt-20 min-h-screen ">
             <h1 className="text-xl font-semibold text-center mb-4">Assignment Overview</h1>
             <div className="w-full">
                 <table className="min-w-full table-auto border-collapse">
