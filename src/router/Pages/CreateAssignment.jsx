@@ -156,7 +156,7 @@ const CreateAssignment = () => {
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="w-full py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="w-full py-2  btn btn-outline text-black hover:bg-blue-600 rounded-md  focus:outline-none focus:ring-2 focus:ring-blue-400"
                     >
                         Create Assignment
                     </button>
