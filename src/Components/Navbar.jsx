@@ -101,7 +101,7 @@ const Navbar = () => {
                             </ul>
                         </div>
 
-                        <div> <Link className="btn px-3 py-1 bg-red-400 text-white" onClick={handleLogout} to="/login">Logout</Link></div>
+                        <div> <Link className=" px-3 py-1  btn btn-outline hover:bg-red-400 text-white" onClick={handleLogout} to="/login">Logout</Link></div>
                     </div>
                 )}
             </div>
