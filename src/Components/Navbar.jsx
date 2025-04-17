@@ -26,7 +26,8 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar fixed z-50 lg:px-32 bg-slate-800 text-white h-24 shadow-lg flex justify-between items-center">
+      <section className='bg-slate-800 sticky top-0  z-50 '>
+          <div className="container mx-auto navbar lg:px-32  text-white h-24 shadow-lg flex justify-between items-center ">
             <div className="navbar-start">
                 {/* Small device dropdown */}
                 <div className="dropdown">
@@ -108,6 +109,7 @@ const Navbar = () => {
                 )}
             </div>
         </div>
+      </section>
 
     );
 };
