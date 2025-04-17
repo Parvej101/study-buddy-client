@@ -13,8 +13,8 @@ const Navbar = () => {
     }
 
     const links = <>
-        <li className='hover:bg-white  hover:text-black font-semibold '><NavLink to="/allAssignment">Assignment</NavLink></li>
-        <li className='hover:bg-white  hover:text-black font-semibold' ><NavLink to="/pending">Pending Assignments</NavLink></li>
+        <li className=' font-semibold border-white hover:border'><NavLink to="/allAssignment">Assignment</NavLink></li>
+        <li className=' font-semibold border-white hover:border' ><NavLink to="/pending">Pending Assignments</NavLink></li>
 
     </>
 
@@ -26,7 +26,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar fixed z-50 lg:px-32 bg-blue-400 text-white h-10">
+        <div className="navbar fixed z-50 lg:px-32 bg-slate-800 text-white h-24 shadow-lg flex justify-between items-center">
             <div className="navbar-start">
                 {/* Small device dropdown */}
                 <div className="dropdown">
@@ -48,15 +48,17 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className={`menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow bg-blue-300 text-black ${isMenuOpen ? 'block' : 'hidden'}`}>
+                        className={`menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow bg-slate-700 text-white ${isMenuOpen ? 'block' : 'hidden'}`}>
                         {links}
                     </ul>
                 </div>
-                <Link to="/">
-                    <div className='hidden lg:flex'>
+                <div>
+                    <Link to="/">
+                    <div className='hidden lg:flex bg-white rounded-full'>
                         <img className='w-20' src="https://i.ibb.co.com/wCQTwZw/logo-3.png" alt="" />
                     </div>
                 </Link>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -82,7 +84,7 @@ const Navbar = () => {
                                         <summary >
                                             <div className='rounded-full relative inline-block'>
                                                 <img
-                                                    className='lg:w-20 w-10'
+                                                    className='w-12 h-12 lg:h-16 lg:w-16 rounded-full border-2 border-white'
                                                     src={user.photoURL}
                                                     alt={user.displayName} />
                                                 {/* Hover name */}
@@ -90,9 +92,9 @@ const Navbar = () => {
                                                     {user.displayName}
                                                 </div>
                                             </div></summary>
-                                        <ul className="px-2 lg:w-48 w-40  bg-blue-300 absolute z-50">
-                                            <li className='hover:bg-white  hover:text-black'><Link to="/create">Create Assignment</Link></li>
-                                            <li className='hover:bg-white hover:text-black'> <Link to="/myAttempted">My Attempted</Link></li>
+                                        <ul className="px-2 lg:w-48 w-40 text-white bg-slate-700 absolute z-50">
+                                            <li className=' hover:border'><Link to="/create">Create Assignment</Link></li>
+                                            <li className=' hover:border'> <Link to="/myAttempted">My Attempted</Link></li>
 
                                         </ul>
                                     </details>
