@@ -26,7 +26,7 @@ const Navbar = () => {
 
 
     return (
-      <section className='bg-slate-800 sticky top-0  z-50 '>
+      <section className='bg-blue-900/70 backdrop-blur-md sticky top-0 z-50 text-white'>
           <div className="container mx-auto navbar lg:px-32  text-white h-24 shadow-lg flex justify-between items-center ">
             <div className="navbar-start">
                 {/* Small device dropdown */}
